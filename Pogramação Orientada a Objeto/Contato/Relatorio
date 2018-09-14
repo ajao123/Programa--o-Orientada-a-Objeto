@@ -1,0 +1,16 @@
+Relatório de POO - Prática 3 - Contatos.
+
+O que você fez?
+Eu fiz o código em C++ de forma modular, 2 clases(Operadora e Telefone) e uma Main.
+
+Com quem e como você fez?
+As quatro primeiras funcionalidades eu consegui fazer sozinho, tirando algumas dúvidas na Internet. A última funcionalidade, relacionada a evitar certos caracteres, eu contei com a ajuda de alguns colegas, pois não estava conseguindo identificar a verificação de dados da string. Eu vi que poderia tratar se coloca-se todos os dados em um vetor de caracteres, mas isso limitaria o tamanho dos dados, então optei fazer por string.
+
+O que aprendeu e sabe fazer?
+Aprendi métodos de busca de caracteres em Strings e movimentação de dados dentro das posições de um vector de ponteiro em C++ .
+
+O que tem dificuldade ainda?
+Dúvidas em relação ao tratamento de strings. Costumo ter bastantes erros relacionados a strings e perder um bom tempo enquanto tento corrigir os erros e conseguir tratá-las da forma adequada.
+
+Quanto tempo levou pra fazer a atividade?
+Eu levei um bom tempo para concluir essa atividade, no total eu levei cerca de 14 horas distribuídas em 3 dias.
