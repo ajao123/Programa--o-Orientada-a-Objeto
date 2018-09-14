@@ -1,0 +1,16 @@
+Relatório de POO - Prática Extra - ContaBancaria.
+
+O que você fez?
+Eu fiz o código em C++ de forma modular.
+
+Com quem e como você fez?
+Eu realizei esse trabalho sozinho. Primeiramente, eu fiz a função “depositar”, “tarifa”, “saque” e “show” apenas alterando o valor do saldo, mas sem interferir no vector, após isso eu adaptei as funções para guardarem todas as funções no vector.
+
+O que aprendeu e sabe fazer?
+Aperfeiçoei meus conhecimentos relacionados ao uso de ponteiros em C++ .
+
+O que tem dificuldade ainda?
+Mesmo com o aprendizado, ainda sinto um pouco de dúvida em relação a ponteiros.
+
+Quanto tempo levou pra fazer a atividade?
+Cerca de 3 horas para completar o trabalho em C++.
