@@ -1,0 +1,16 @@
+POO-Calhambeque
+Relatório de POO - Prática 1 - Carro.
+O que você fez?
+Eu fiz primeiramente o código em JAVA, pois estava mais familiarizado. Após isso revisei o conteúdo de C++ necessário para realizar o projeto. Após isso, converti o meu código em JAVA para C++ realizando as alterações necessárias.
+
+Com quem e como você fez?
+Eu realizei essa prática sozinho e a maior dificuldade foi a construção do menu, para conseguir receber as Strings. Pesquisei diversas formas mas não consegui resultados satisfatórios. Então consegui resolver usando o comando "cin <<".
+
+O que aprendeu e sabe fazer?
+Aprendi a manipular Strings através do comando "cin <<", e relembrei como fazer uso de Classes em C++ .
+
+O que tem dificuldade ainda?
+Em relação à atividade atual, a maior dificuldade encontrada foi a manipulação de Strings. O uso de comandos específicos de C++ também gerou uma certa dificuldade.
+
+Quanto tempo levou pra fazer a atividade?
+Cerca de 10 horas considerando o tempo de implementação da aplicação em JAVA e em C++ e a revisão do conteúdo de C++ .
