@@ -1,0 +1,24 @@
+Relatório de POO - Prática 4 - Tamagotchi.
+
+O que você fez?
+Eu fiz o código em C++ de forma modular, 1 classe(Tamagoshi) e uma Main.
+
+Com quem e como você fez?
+Eu fiz essa prática sozinho,eu fiz primeiro toda a classe tamagoshi, que contém um construtor, as funções: 
+
+        tamagoshi(int energia_MAX, int fome_MAX, int limpeza_MAX); costrutor
+        void comer();   alimentar o pet
+        void dormir();  colocar o pet para dormir
+        void brincar(); brincar com o pet
+        void show();    mostrar os dados do pet
+        void limpar();  limpar o pet
+        void morreu(); verificar se o pet esta morto
+        
+O que aprendeu e sabe fazer?
+Nesse exercicío, eu exercitei os métodos de programação que aprendi duranta a disciplina.
+
+O que tem dificuldade ainda?
+ Nesse projeto eu não encontrei nenhuma dificuldade.
+
+Quanto tempo levou pra fazer a atividade?
+  Eu levei cerca de 2 horas para concluir o projeto.
