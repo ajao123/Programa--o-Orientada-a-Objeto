@@ -1,0 +1,18 @@
+Relatório de POO - Prática Extra - Agiota.
+
+O que você fez?
+Eu fiz o código em C ++ de forma modular. Ele possui uma MAIN, uma Classe Cliente, uma Classe Agiota e uma Classe Transacao.
+
+Com quem e como você fez?
+Eu realizei esse trabalho sozinho. Primeiramente eu fiz a função Cliente que eu utilizo através do Vector de ponteiros para Clientes.
+Nela serão cadastrados os dados dos Clientes. Eu crio outro Vector na função agiota, esse Vector será um ponteiro para transações,
+onde serão colocados as transações efetuadas.Após isso eu fiz a interação de todas as Classes com a Main.
+
+O que aprendeu e sabe fazer?
+Novamente um aperfeiçoamento, eu não fiz uso de nada que ja não tenha usado nas práticas anteriores.
+
+O que tem dificuldade ainda?
+Ainda com um pouco de dúvidas na partição de Strings, mas ja sanei quase todas as minhas dúvidas.
+
+Quanto tempo levou pra fazer uma atividade?
+Cerca de 4 horas para completar o trabalho em C ++.
