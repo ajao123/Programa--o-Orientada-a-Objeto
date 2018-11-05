@@ -1,1 +1,125 @@
+POO-Calhambeque
+
+Relatório de POO - Prática 1 - Carro. 
+23/08/2018
+O que você fez?
+Eu fiz primeiramente o código em JAVA, pois estava mais familiarizado. Após isso revisei o conteúdo de C++ necessário para realizar o projeto. Após isso, converti o meu código em JAVA para C++ realizando as alterações necessárias.
+
+Com quem e como você fez?
+Eu realizei essa prática sozinho e a maior dificuldade foi a construção do menu, para conseguir receber as Strings. Pesquisei diversas formas mas não consegui resultados satisfatórios. Então consegui resolver usando o comando "cin <<".
+
+O que aprendeu e sabe fazer?
+Aprendi a manipular Strings através do comando "cin <<", e relembrei como fazer uso de Classes em C++ .
+
+O que tem dificuldade ainda?
+Em relação à atividade atual, a maior dificuldade encontrada foi a manipulação de Strings. O uso de comandos específicos de C++ também gerou uma certa dificuldade.
+
+Quanto tempo levou pra fazer a atividade?
+Cerca de 10 horas considerando o tempo de implementação da aplicação em JAVA e em C++ e a revisão do conteúdo de C++ .
+
+Relatório de POO - Prática 2 - Topic Ponteiro.
+
+02/09/2018
+
+O que você fez?
+Eu fiz o código em C++ de forma modular.
+
+Com quem e como você fez?
+Eu realizei essa prática sozinho e a maior dificuldade foi trabalhar com ponteiros.
+
+O que aprendeu e sabe fazer?
+Relembrei como se tratar ponteiros em C++ .
+
+O que tem dificuldade ainda?
+Mesmo com o aprendizado, ainda sinto um pouco de dúvida em relação a ponteiros.
+
+Quanto tempo levou pra fazer a atividade?
+Cerca de 4 horas para completar o trabalho em C++.
+
+Relatório de POO - Prática Extra - ContaBancaria.
+
+02/09/2018
+
+O que você fez?
+Eu fiz o código em C++ de forma modular.
+
+Com quem e como você fez?
+Eu realizei esse trabalho sozinho. Primeiramente, eu fiz a função “depositar”, “tarifa”, “saque” e “show” apenas alterando o valor do saldo, mas sem interferir no vector, após isso eu adaptei as funções para guardarem todas as funções no vector.
+
+O que aprendeu e sabe fazer?
+Aperfeiçoei meus conhecimentos relacionados ao uso de ponteiros em C++ .
+
+O que tem dificuldade ainda?
+Mesmo com o aprendizado, ainda sinto um pouco de dúvida em relação a ponteiros.
+
+Quanto tempo levou pra fazer a atividade?
+Cerca de 3 horas para completar o trabalho em C++.
+
+Relatório de POO - Prática 3 - Contatos.
+
+05/09/2018
+
+O que você fez?
+Eu fiz o código em C++ de forma modular, 2 clases(Operadora e Telefone) e uma Main.
+
+Com quem e como você fez?
+As quatro primeiras funcionalidades eu consegui fazer sozinho, tirando algumas dúvidas na Internet. A última funcionalidade, relacionada a evitar certos caracteres, eu contei com a ajuda de alguns colegas, pois não estava conseguindo identificar a verificação de dados da string. Eu vi que poderia tratar se coloca-se todos os dados em um vetor de caracteres, mas isso limitaria o tamanho dos dados, então optei fazer por string.
+
+O que aprendeu e sabe fazer?
+Aprendi métodos de busca de caracteres em Strings e movimentação de dados dentro das posições de um vector de ponteiro em C++ .
+
+O que tem dificuldade ainda?
+Dúvidas em relação ao tratamento de strings. Costumo ter bastantes erros relacionados a strings e perder um bom tempo enquanto tento corrigir os erros e conseguir tratá-las da forma adequada.
+
+Quanto tempo levou pra fazer a atividade?
+Eu levei um bom tempo para concluir essa atividade, no total eu levei cerca de 14 horas distribuídas em 3 dias.
+
+
+Relatório de POO - Prática 4 - Tamagotchi.
+
+13/09/2018
+
+O que você fez?
+Eu fiz o código em C++ de forma modular, 1 classe(Tamagoshi) e uma Main.
+
+Com quem e como você fez?
+Eu fiz essa prática sozinho,eu fiz primeiro toda a classe tamagoshi, que contém um construtor, as funções: 
+
+        tamagoshi(int energia_MAX, int fome_MAX, int limpeza_MAX); costrutor
+        void comer();   alimentar o pet
+        void dormir();  colocar o pet para dormir
+        void brincar(); brincar com o pet
+        void show();    mostrar os dados do pet
+        void limpar();  limpar o pet
+        void morreu(); verificar se o pet esta morto
+        
+O que aprendeu e sabe fazer?
+Nesse exercicío, eu exercitei os métodos de programação que aprendi duranta a disciplina.
+
+O que tem dificuldade ainda?
+ Nesse projeto eu não encontrei nenhuma dificuldade.
+
+Quanto tempo levou pra fazer a atividade?
+  Eu levei cerca de 2 horas para concluir o projeto.
+  
+ Relatório de POO - Prática Extra - Agiota.
+
+17/09/2018
+
+O que você fez?
+Eu fiz o código em C ++ de forma modular. Ele possui uma MAIN, uma Classe Cliente, uma Classe Agiota e uma Classe Transacao.
+
+Com quem e como você fez?
+Eu realizei esse trabalho sozinho. Primeiramente eu fiz a função Cliente que eu utilizo através do Vector de ponteiros para Clientes.
+Nela serão cadastrados os dados dos Clientes. Eu crio outro Vector na função agiota, esse Vector será um ponteiro para transações,
+onde serão colocados as transações efetuadas.Após isso eu fiz a interação de todas as Classes com a Main.
+
+O que aprendeu e sabe fazer?
+Novamente um aperfeiçoamento, eu não fiz uso de nada que ja não tenha usado nas práticas anteriores.
+
+O que tem dificuldade ainda?
+Ainda com um pouco de dúvidas na partição de Strings, mas ja sanei quase todas as minhas dúvidas.
+
+Quanto tempo levou pra fazer uma atividade?
+Cerca de 4 horas para completar o trabalho em C ++.
 
