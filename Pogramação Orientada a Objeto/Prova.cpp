@@ -137,9 +137,9 @@ public:
     }
     void getFavoritos(){
         stringstream ss;
-        for(auto it : contatos){
-            if(it.second.getFavorito()){
-                ss << "@"<<it.second.toString() << endl;
+        for(auto it : favoritos){
+            if(it.second->getFavorito()){
+                ss << "@"<<it.second->toString() << endl;
             }
         }
         cout << ss.str() << endl;
