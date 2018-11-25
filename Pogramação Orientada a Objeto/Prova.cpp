@@ -5,10 +5,63 @@
 
 using namespace std;
 
+class Entry {
+    bool favorited;
+public:
+    //virtual Entry();
+    //virtual ~Entry() = 0;
+    virtual string getId() = 0;
+    virtual void setFavorited(bool value) = 0;
+    virtual bool isFavorited() = 0;
+    virtual string toString() = 0;
+};
+
+class Note : public Entry {
+    string id;
+    bool favorited = false;
+    vector<string> itens;
+ public:
+
+    Note(string id = ""){
+        this->id = id;
+    }
+    string getId(){
+        return id;
+    }
+    void addItem(string item){
+        itens.push_back(item);
+    }
+    void rmItem(int indice){
+        itens.erase(itens.begin()+indice);
+    }
+    string toString(){
+        int i = 0;
+        string saida = id+" N [ ";
+        for(auto item : itens){
+            saida += to_string(i++) +": "+item + " ";
+        }
+        saida +="]";
+        if(favorited){
+                    saida+=" - Favorito: true";
+            }else{
+                    saida+=" - Favorito: false";
+            }
+        return saida;
+    }
+    void setFavorited(bool fv){
+        favorited = fv;
+    }
+    bool isFavorited(){
+        return favorited;
+    }
+
+};
+
 class Fone {
 public:
     string id;
     string number;
+
 
     Fone(string id = "", string number = ""){
         this->id = id;
@@ -24,16 +77,16 @@ public:
     }
 };
 
-class Contato {
+class Contato : public Entry{
     string name;
     bool favorited = false;
     vector<Fone> fones;
 public:
 
-    void setFavorito(bool fv){
+    void setFavorited(bool fv){
         favorited = fv;
     }
-    bool getFavorito(){
+    bool isFavorited(){
         return favorited;
     }
 
@@ -41,7 +94,7 @@ public:
         this->name = name;
     }
 
-    string getName(){
+    string getId(){
         return name;
     }
 
@@ -69,87 +122,104 @@ public:
         int i = 0;
         for(auto fone : getFones())
             saida += "[" + to_string(i++) + ":" + fone.id + ":" + fone.number + "]";
+
+            if(favorited){
+                    saida+=" - Favorito: true";
+            }else{
+                    saida+=" - Favorito: false";
+            }
         return saida;
     }
 };
 
+
 class Agenda {
-    map<string, Contato> contatos;
-    map<string, Contato*> favoritos;
+
+   // map<string, Contato> contatos;
+   // map<string, Contato*> favoritos;
 public:
-    void addContato(Contato cont){
-        string name = cont.getName();
-        if(contatos.count(name) == 1)
-            throw string("contato " + name + " ja existe");
-        contatos[name] = cont;
+   map<string, Entry*> m_entries;
+   map<string, Entry*> m_favorities;
+
+
+    void addEntry(Entry * entry){
+        m_entries.insert(make_pair(entry->getId(), entry));
+    }
+    void rmEntry(string id){
+        m_entries.erase(id);
     }
 
-    void rmContato(string name) {
-        contatos.erase(name);
+    void favorite(string idEntry){
+        auto it =  m_entries.find(idEntry);
+        if(it != m_entries.end()){
+            m_entries.at(idEntry)->setFavorited(true);
+            m_favorities.insert(make_pair(idEntry, m_entries.at(idEntry)));
+        }else{
+            cout << "fail: Entrada inexistente." << endl;
+        }
     }
+    void unfavorite(string idEntry){
 
-    Contato * getContato(string name){
-        if(contatos.count(name))
-            return &contatos[name];
-        throw string("  contato " + name + " nao existe");
+        auto it =  m_entries.find(idEntry);
+        if(it != m_entries.end()){
+            m_entries.at(idEntry)->setFavorited(false);
+            m_favorities.erase(idEntry);
+        }else{
+            cout << "fail: Entrada inexistente." << endl;
+        }
     }
-
-    vector<Contato> getContatos(){
-        vector<Contato> resp;
-        for(auto& par : contatos)
-            resp.push_back(par.second);
-        return resp;
+    vector<Entry*> getFavorited(){
+        vector<Entry*> favoritos;
+        for(auto it : m_favorities){
+            favoritos.push_back(it.second);
+        }
+        return favoritos;
     }
-
-    vector<Contato> search(string pattern){
-        vector<Contato> resp;
-        for(auto& par : contatos)
-            if(par.second.toString().find(pattern) != string::npos)
-                resp.push_back(par.second);
-        return resp;
+    Entry * getEntry(string id){
+        auto it =  m_entries.find(id);
+        if(it != m_entries.end()){
+            return m_entries.at(id);
+        }else{
+            cout << "fail: Entrada inexistente." << endl;
+        }
+    }
+    vector<Entry*> getEntries(){
+        vector<Entry*> entradas;
+        for(auto it : m_entries){
+            entradas.push_back(it.second);
+        }
+        return entradas;
     }
 
     string toString(){
-        string saida = "";
-        for(auto contato : getContatos())
-            saida += contato.toString() + "\n";
-        return saida;
-    }
-
-    void favoritar(string nome){
-        auto it = contatos.find(nome);
-        if(it != contatos.end()){
-            contatos.at(nome).setFavorito(true);
-            favoritos.insert(make_pair(nome, &contatos.at(nome)));
-        }else{
-            cout <<"fail: Contato inexistente" << endl;
-        }
-    }
-
-    void desfavoritar(string nome){
-        auto it = contatos.find(nome);
-        if(it != contatos.end()){
-            contatos.at(nome).setFavorito(false);
-            favoritos.erase(nome);
-        }else{
-            cout <<"fail: Contato inexistente" << endl;
-        }
-    }
-    void getFavoritos(){
         stringstream ss;
-        for(auto it : favoritos){
-            if(it.second->getFavorito()){
-                ss << "@"<<it.second->toString() << endl;
-            }
+        for(auto it : m_entries){
+            ss << it.second->toString()<<endl;
         }
-        cout << ss.str() << endl;
+        return ss.str();
     }
-
 };
 
+class AgendaMaster : public Agenda{
+public:
+    Contato * getContato(string id){
+        if(Contato *contato = dynamic_cast<Contato*>(getEntry(id))){
+            return contato;
+        }
+        return nullptr;
+    }
+    Note * getNote(string id){
+        if(Note *note = dynamic_cast<Note*>(getEntry(id))){
+            return note;
+        }
+        return nullptr;
+    }
+
+
+};
 class Controller {
 
-    Agenda agenda;
+    AgendaMaster agenda;
 public:
 
     void shell(string line){
@@ -160,53 +230,85 @@ public:
         if(op == "addContato"){
             string name, id_number;
             ss >> name;
-            Contato cont(name);
+            string id, fone;
+
+            agenda.addEntry(new Contato(name));
             while(ss >> id_number){
-                string id, fone;
+
                 stringstream ssfone(id_number);
                 getline(ssfone, id, ':');
                 ssfone >> fone;
-                cont.addFone(Fone(id, fone));
             }
+            Contato *contato = agenda.getContato(name);
+            contato->addFone(Fone(id, fone));
+            //agenda.addContato(cont);
+        }else if(op == "addNote"){
+            string name;
+            ss >> name;
+            agenda.addEntry(new Note(name));
+        }else if(op == "rmNote"){
+            string name;
+            ss >> name;
+            agenda.rmEntry(name);
+        }else if(op == "addFone"){
 
-            agenda.addContato(cont);
+            string name, id_number;
+            ss >> name;
+            string id, fone;
+            while(ss >> id_number){
+                stringstream ssfone(id_number);
+                getline(ssfone, id, ':');
+                ssfone >> fone;
+            }
+            Contato *contato = agenda.getContato(name);
+            contato->addFone(Fone(id, fone));
         }else if(op == "rmFone"){
             string name;
             int indice;
             ss >> name >> indice;
-            agenda.getContato(name)->rmFone(indice);
-        }
-        else if(op == "rmContato"){
+            //agenda.getContato(name)->rmFone(indice);
+            Contato *contato = agenda.getContato(name);
+            contato->rmFone(indice);
+
+        }else if(op == "addItem"){
+            string name, anotacao="", comando;
+            ss >> name;
+             while(ss >> comando){
+                anotacao+=comando+" ";
+            }
+            Note *note = agenda.getNote(name);
+            note->addItem(anotacao);
+        }else if(op == "rmItem"){
+            string name;
+            int indice;
+            ss >> name;
+            ss >> indice;
+
+            Note *note = agenda.getNote(name);
+            note->rmItem(indice);
+        }else if(op == "rmContato"){
             string name;
             ss >> name;
-            agenda.rmContato(name);
-        }
-        else if(op == "agenda"){
+            agenda.rmEntry(name);
+        }else if(op == "agenda"){
             cout << agenda.toString();
-        }
-        else if(op == "search"){
+        }else if(op == "search"){
             string pattern;
             ss >> pattern;
-            auto resp = agenda.search(pattern);
-            for(auto contato : resp)
-                cout << contato.toString() << endl;
+            auto it = agenda.getEntry(pattern);
+            cout << it->toString() << endl;
         }else if(op == "fav"){
             string name;
             ss >> name;
-            agenda.favoritar(name);
+            agenda.favorite(name);
         }else if(op == "desfav"){
             string name;
             ss >> name;
-            agenda.desfavoritar(name);
+            agenda.unfavorite(name);
         }else if(op == "showFav"){
-            agenda.getFavoritos();
-            /*
-            string saida = "";
-            auto favs = agenda.getFavoritos();
-            for(auto contato : favs)
-            saida += contato.toString() + "\n";
-            return saida;
-            */
+            for(auto *it : agenda.getFavorited()){
+                cout << it->toString() << endl;
+            }
         }else
             cout << "comando invalido" << endl;
     }
@@ -228,9 +330,9 @@ public:
     }
 };
 
-int main()
-{
+int main(){
     Controller controller;
     controller.exec();
     return 0;
 }
+
